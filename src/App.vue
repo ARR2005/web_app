@@ -7,12 +7,13 @@
       <th >Column 1</th>
       <th>Column 2</th>
       <th>Column 3</th>
+      <th><button>modal-create</button></th>
       </tr>
       <tr>
-        <th >Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th><p>{{ Date.created }}</p> <button></button></th>
+        <td >Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+        <td><button>modal-delete</button></td>
       </tr>
 
     </table>
