@@ -1,8 +1,8 @@
-import express from 'express'; // Only this line should import express
-import { create_product, read_product, updated_product, delete_product } from './CRUD.js'; // Ensure the .js extension is included
+import express from 'express'; 
+import { create_product, read_product, updated_product, delete_product } from './CRUD.js'; 
 
 const app = express();
-app.use(express.json()); // Add this line to parse JSON request bodies
+app.use(express.json());
 
 app.get('/product', (req, res) => {
     read_product((err, rows) => {
@@ -27,4 +27,4 @@ app.post('/product', (req, res) => {
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
-});
+}); 
