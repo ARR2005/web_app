@@ -1,0 +1,63 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client and Room Management</title>
+    <script>
+        async function fetchClients() {
+            const response = await fetch('/clients');
+            const clients = await response.json();
+            document.getElementById('clients').innerHTML = JSON.stringify(clients, null, 2);
+        }
+
+        async function fetchRooms() {
+            const response = await fetch('/rooms');
+            const rooms = await response.json();
+            document.getElementById('rooms').innerHTML = JSON.stringify(rooms, null, 2);
+        }
+
+        async function addClient() {
+            const clientName = document.getElementById('clientName').value;
+            await fetch('/clients', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ client_name: clientName })
+            });
+            fetchClients();
+        }
+
+        async function addRoom() {
+            const roomName = document.getElementById('roomName').value;
+            const clientId = document.getElementById('roomClientId').value;
+            await fetch('/rooms', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ room_name: roomName, client_id: clientId })
+            });
+            fetchRooms();
+        }
+    </script>
+</head>
+<body>
+    <h1>Client and Room Management</h1>
+
+    <h2>Add Client</h2>
+    <input type="text" id="clientName" placeholder="Client Name">
+    <button onclick="addClient()">Add Client</button>
+
+    <h2>Add Room</h2>
+    <input type="text" id="roomName" placeholder="Room Name">
+    <input type="number" id="roomClientId" placeholder="Client ID">
+    <button onclick="addRoom()">Add Room</button>
+
+    <h2>Clients</h2>
+    <pre id="clients"></pre>
+    <button onclick="fetchClients()">Refresh Clients</button>
+
+    <h2>Rooms</h2>
+    <pre id="rooms"></pre>
+    <button onclick="fetchRooms()">Refresh Rooms</button>
+</body>
+</html>
