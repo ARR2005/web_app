@@ -1,6 +1,6 @@
 import sqlite3 from 'sqlite3';
 
-const db = new sqlite3.Database('./database.db', (err) => {
+const db = new sqlite3.Database('./hotel_database', (err) => {
     if (err) {
         console.error('Error opening database ' + err.message);
     } else {

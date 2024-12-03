@@ -1,4 +1,4 @@
-import db from './assets/database.js'; // Adjust the path as necessary
+import db from './assets/database.js';
 
 // Client CRUD operations
 export const create_client = (client_name, callback) => {

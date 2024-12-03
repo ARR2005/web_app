@@ -1,4 +1,3 @@
-// index.js
 import express from 'express'; 
 import { create_client, read_clients, update_client, delete_client, create_room, read_rooms, update_room, delete_room } from './CRUD.js'; 
 
