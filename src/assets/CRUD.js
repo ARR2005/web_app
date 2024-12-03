@@ -1,4 +1,4 @@
-import db from './assets/database.js'; // Ensure this path is correct
+import db from './assets/database.js'; // Adjust the path as necessary
 
 // Client CRUD operations
 export const create_client = (client_name, callback) => {
@@ -37,4 +37,11 @@ export const read_rooms = (callback) => {
 };
 
 export const update_room = (room_id, room_name, client_id, callback) => {
-    const sql = 'UPDATE rooms SET
+    const sql = 'UPDATE rooms SET room_name = ?, client_id = ? WHERE room_id = ?';
+    db.run(sql, [room_name, client_id, room_id], callback);
+};
+
+export const delete_room = (room_id, callback) => {
+    const sql = 'DELETE FROM rooms WHERE room_id = ?';
+    db.run(sql, room_id, callback);
+};
