@@ -7,7 +7,43 @@
     <link href="../src/output.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-"></div>
+    <div class="bg-slate-500 w-screen h-screen">
+        <form action="postItem">
+            <fieldset>
+                <label for="item_Name">Item Name:<input id="item_Name" type="text" placeholder="Anvil" required></label>
+            </fieldset>
+            <fieldset>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" checked> color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+            </fieldset>
+            <fieldset>
+                <label for="item_Type">Item Type:</label>
+                <select name="item_Type" id="item_Type">
+                    <option value="0">fragile</option>
+                    <option value="1">hard</option>
+                    <option value="2">soft</option>
+                    <option value="3">flexible</option>
+                    <option value="4">plastic</option>
+                    <option value="5">organic</option>
+                    <option value="6">Hazard</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="item_Quantity"> Quantity: <input type="number" min="1" name="item_Quantity" id=""></label>
+            </fieldset>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script src="app.js"></script>
     
 </body>
 </html>
