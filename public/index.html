@@ -6,8 +6,7 @@
     <title>ItemShow</title>
     <link href="../src/output.css" rel="stylesheet">
 </head>
-<body>
-    <div class="bg-slate-500 w-screen h-screen">
+<body class="bg-slate-900">
         <form action="postItem">
             <fieldset>
                 <label for="item_Name">Item Name:<input id="item_Name" type="text" placeholder="Anvil" required></label>
@@ -37,11 +36,12 @@
                 </select>
             </fieldset>
             <fieldset>
-                <label for="item_Quantity"> Quantity: <input type="number" min="1" name="item_Quantity" id=""></label>
+                <label for="item_Quantity"> Quantity: <input type="text" min="1" name="item_Quantity" id="item_Quantity" required></label>
+
             </fieldset>
             <input type="submit" value="Submit">
         </form>
-    </div>
+
 
     <script src="app.js"></script>
     
