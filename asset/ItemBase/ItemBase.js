@@ -8,13 +8,13 @@ const db = new sqlite3.Database('./ItemBase.db' , (err) => {
 
         //creating Items Table if it doesn't exist
         db.run(`CREATE TABLE IF NOT EXISTS Items (
-            item_ID INT PRIMARY KEY AUTO_INCREMENT,
-            item_Name TEXT,
-            item_Color TEXT,
-            item_Type TEXT,
-            item_Quantity INT,
-            item_Created Date,
-            item_Time DATETIME
+            ID INT PRIMARY KEY AUTO_INCREMENT,
+            Name TEXT,
+            Color TEXT,
+            Type TEXT,
+            Quantity INT,
+            Created Date,
+            Time DATETIME
             )` , (err) => {
             if (err) {
                 return console.error("error adding constraint" + err.message)

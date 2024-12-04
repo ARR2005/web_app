@@ -1,11 +1,20 @@
-import express from 'express'; 
-import { } from './CRUD.js'; 
-import {} from './Route.js'
+const express = require('express');
+const path = require('path');
+const ItemRoutes = require('./Route'); // Import user routes
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+// Middleware to serve static files (e.g., HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware to parse JSON bodies
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+// Use user routes
+app.use('Item', ItemRoutes);
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
