@@ -5,7 +5,7 @@ const db = new sqlite3.Database('./ItemBase.db', (err) => {
     } else {
         console.log("Connected to database");
         db.run(`CREATE TABLE IF NOT EXISTS Items (
-            item_ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+            item_ID INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT,
             Color TEXT,
             Type TEXT,
@@ -38,6 +38,7 @@ const addItem = (name, color, type, quantity, created, time, callback) => {
             console.error("Error inserting item: ", err.message); 
             return callback(err);
         }
+        console.log("Inserted item with ID:", this.lastID);
         callback(null, { item_ID: this.lastID, name, color, type, quantity, created, time });
     });
 };

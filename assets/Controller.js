@@ -30,9 +30,10 @@ exports.addItem = (req, res) => {
 
     item.addItem(name, color, type, quantityNumber, created, time, (err, item) => {
         if (err) {
-            console.error("Error adding item:", err.message); // Log the error for debugging
+            console.error("Error adding item:", err.message);
             return res.status(500).send(err.message);
         }
+        console.log("Item added successfully:", item); // This should show the item with a valid item_ID
         res.status(201).json(item);
     });
 };
