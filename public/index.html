@@ -6,26 +6,17 @@
     <title>ItemShow</title>
     <link href="../src/output.css" rel="stylesheet">
 </head>
-<body class="bg-slate-900">
-        <form action="postItem">
+<body class="bg-green-300">
+        <form id="postItem" action="/api/item" method="POST">
             <fieldset>
-                <label for="item_Name">Item Name:<input id="item_Name" type="text" placeholder="Anvil" required></label>
+                <label for="name">Item Name:<input id="name" type="text" placeholder="Anvil" required></label>
             </fieldset>
             <fieldset>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" checked> color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
-                <label for="item_Color"><input id="item_Color" name="color" type="radio" > color #</label>
+                <label for="color">Item Color:<input id="color" type="color" required></label>
             </fieldset>
             <fieldset>
-                <label for="item_Type">Item Type:</label>
-                <select name="item_Type" id="item_Type">
+                <label for="type">Item Type:</label>
+                <select name="type" id="type">
                     <option value="0">fragile</option>
                     <option value="1">hard</option>
                     <option value="2">soft</option>
@@ -36,8 +27,7 @@
                 </select>
             </fieldset>
             <fieldset>
-                <label for="item_Quantity"> Quantity: <input type="text" min="1" name="item_Quantity" id="item_Quantity" required></label>
-
+                <label for="quantity"> Quantity: <input type="text" min="1" name="quantity" id="quantity" required></label>
             </fieldset>
             <input type="submit" value="Submit">
         </form>

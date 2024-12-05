@@ -31,14 +31,14 @@ const getItem = (callback) => {
     });
 };
 
-const addItem = (Name, Color, Type, Quantity, Created, Time, callback) => {
+const addItem = (name, color, type, quantity, created, time, callback) => {
     const sql = `INSERT INTO Items (Name, Color, Type, Quantity, Created, Time) VALUES (?, ?, ?, ?, ?, ?)`;
-    db.run(sql, [Name, Color, Type, Quantity, Created, Time], function(err) {
+    db.run(sql, [name, color, type, quantity, created, time], function(err) {
         if (err) {
             console.error("Error inserting item: ", err.message); 
             return callback(err);
         }
-        callback(null, { item_ID: this.lastID, Name, Color, Type, Quantity, Created, Time });
+        callback(null, { item_ID: this.lastID, name, color, type, quantity, created, time });
     });
 };
 

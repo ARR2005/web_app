@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware to parse JSON bodies
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Use item routes
