@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //Table even handler
-    // Fetch Item and update the table
+    //Table event handler
     function fetchItem() {
         fetch('http://localhost:3000/api/item')
         .then(response => response.json())
