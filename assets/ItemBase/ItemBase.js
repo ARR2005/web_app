@@ -5,7 +5,7 @@ const db = new sqlite3.Database('./ItemBase.db', (err) => {
     } else {
         console.log("Connected to database");
         db.run(`CREATE TABLE IF NOT EXISTS Items (
-            item_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            item_ID INTEGER PRIMARY KEY AUTO_INCREMENT,
             Name TEXT,
             Color TEXT,
             Type TEXT,

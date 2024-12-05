@@ -1,9 +1,13 @@
 const express = require('express');
 const path = require('path');
-const itemRoutes = require('./Route'); // Import user routes
+const cors = require('cors'); 
+const itemRoutes = require('./Route');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+
+app.use(cors()); 
 
 // Middleware to serve static files (e.g., HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));

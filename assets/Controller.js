@@ -12,13 +12,27 @@ exports.getItem = (req, res) => {
 
 // Add a new item to the database
 exports.addItem = (req, res) => {
-  console.log('Request body:', req.body); // Log the request body
-  const { name, color, type, quantity } = req.body;
+    console.log('Request body:', req.body); // Log the request body
+    const { name, color, type, quantity } = req.body;
 
-  item.addItem(name, color, type, quantity, created, time, (err, item) => {
-      if (err) {
-          return res.status(500).send(err.message);
-      }
-      res.status(201).json(item);
-  });
+    //validation
+    if (!name || !color || !type || !quantity) {
+        return res.status(400).send('All fields are required.');
+    }
+    
+    const quantityNumber = parseInt(quantity, 10);
+    if (isNaN(quantityNumber)) {
+        return res.status(400).send('Quantity must be a number.');
+    }
+
+    const created = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+    const time = new Date().toISOString(); // Current date and time in ISO format
+
+    item.addItem(name, color, type, quantityNumber, created, time, (err, item) => {
+        if (err) {
+            console.error("Error adding item:", err.message); // Log the error for debugging
+            return res.status(500).send(err.message);
+        }
+        res.status(201).json(item);
+    });
 };
