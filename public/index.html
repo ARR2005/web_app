@@ -6,54 +6,62 @@
     <title>ItemShow</title>
     <link href="../src/output.css" rel="stylesheet">
 </head>
-<body class="">
-    <!-- FORM -->
-        <form id="postItem" action="/api/item" method="POST">
-            <fieldset>
-                <label for="name">Item Name:<input id="name" type="text" placeholder="Anvil" required></label>
-            </fieldset>
-            <fieldset>
-                <label for="color">Item Color:<input id="color" type="color" required></label>
-            </fieldset>
-            <fieldset>
-                <label for="type">Item Type:</label>
-                <select name="type" id="type">
-                    <option value="fragile">fragile</option>
-                    <option value="hard">hard</option>
-                    <option value="soft">soft</option>
-                    <option value="flexible">flexible</option>
-                    <option value="plastic">plastic</option>
-                    <option value="organic">organic</option>
-                    <option value="Hazard">Hazard</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <label for="quantity"> Quantity: <input type="text" min="1" name="quantity" id="quantity" required></label>
-            </fieldset>
-            <input type="submit" value="Submit">
-        </form>
-
-        <!-- Table -->
-        <h2>Items Table</h2>
-        <table id="itemTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Type</th>
-                <th>created</th>
-                <th>quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- User rows will be dynamically added here -->
-        </tbody>
+<body class="bg-slate-900">
+    <!-- modal -->
+    <div id="modal" class="fixed inset-0 hidden  bg-slate-800 text-slate-300 W-[60vw] max-w-[500px] max-h-fit  mx-auto mt-auto font-serif px-4 ">
+        <!-- FORM -->
+        <div>
+            <button id="closeModal" class="bg-red-400 text-white p-1 p-2 mt-3 inline-block rounded">Close</button>
+            <H1 class="mx-20 justify-self-center font-extrabold  mt-1 mb-0 inline-block">ADDING CONTENT FORM</H1>
+        </div>
+            <form id="postItem" action="/api/item" method="POST" class="flex flex-col">
+                <fieldset class="my-2">
+                    <label for="name">Item Name:<input class="bg-slate-700 text-white block w-[98%] mx-auto" id="name" type="text" placeholder=" Ex. Laptop" required></label>
+                </fieldset>
+                <fieldset>
+                    <label for="color" >Item Color:<input class="block w-20 h-20 border-2 border-black  border-solid" id="color"  value="#af2f3f" type="color" required></label>
+                </fieldset>
+                <fieldset class="my-2">
+                    <label for="type">Item Type:</label>
+                    <select class="bg-slate-700 text-slate-300 block" name="type" id="type">
+                        <option value="fragile">fragile</option>
+                        <option value="hard">hard</option>
+                        <option value="soft">soft</option>
+                        <option value="flexible">flexible</option>
+                        <option value="plastic">plastic</option>
+                        <option value="organic">organic</option>
+                        <option value="Hazard">Hazard</option>
+                    </select>
+                </fieldset>
+                <fieldset class="my-2">
+                    <label for="quantity"> Quantity: <input class="bg-slate-700 text-slate-300 block w-full px-3" type="text" min="1" name="quantity" placeholder="Numbers Only" id="quantity" required></label>
+                </fieldset>
+                <button class="self-center bg-white my-2 min-w-20 rounded-tl-2xl rounded-br-2xl hover:bg-green-600 hover:text-white " type="submit" value="Submit">SUBMIT</button>
+            </form>
+        </div>
+    <!-- end -->
+    
+    <div class="container mx-auto p-6">
+        <h1 class="text-slate-300 font-mono text-3xl my-3">ITEMS DATABASE TESTING</h1>
+        <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="py-2 px-3 border-b text-sm">ID</th>
+                    <th class="py-2 px-3 border-b text-sm">Name</th>
+                    <th class="py-2 px-3 border-b text-sm">Color</th>
+                    <th class="py-2 px-3 border-b text-sm">Type</th>
+                    <th class="py-2 px-3 border-b text-sm">Created</th>
+                    <th class="py-2 px-3 border-b text-sm">Quantity</th>
+                    <th class="py-2 px-3 border-b text-sm">
+                        <button id="openModal" class="transition duration-300 ease-in-out transform hover:scale-110 bg-gray-600 text-white p-2 rounded">Open Modal</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="itemTable">
+                <!-- User rows will be dynamically added here -->
+            </tbody>
         </table>
     </div>
-
-
     <script src="app.js"></script>
-    
 </body>
 </html>

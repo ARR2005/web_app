@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const itemForm = document.getElementById('postItem');
-    const itemTable = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
+    const itemForm = document.getElementById('postItem');  
+    //modal
+    const openModalButton = document.getElementById('openModal');
+    const modal = document.getElementById('modal');
+    const closeModalButton = document.getElementById('closeModal');
+
+    openModalButton.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+    });
+
+    closeModalButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
 
     //Form submission event handler
     itemForm.addEventListener('submit', function(event) {
@@ -34,30 +45,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //Table event handler
-    function fetchItem() {
+        // Fetch items from the API
+    function fetchItems() {
         fetch('http://localhost:3000/api/item')
-        .then(response => response.json())
-        .then(item => {
-            // Clear the table first
-            itemTable.innerHTML = '';
-
-            // Populate the table with  data
-            item.forEach(item => {
-            const row = itemTable.insertRow();
-            row.innerHTML = `
-                <td>${item.item_ID}</td>
-                <td>${item.Name}</td>
-                <td>${item.Color}</td>
-                <td>${item.Type}</td>
-                <td>${item.Time}</td>
-                <td>${item.Quantity}</td>
-            `;
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(items => {
+            const itemTable = document.getElementById('itemTable');
+            itemTable.innerHTML = ''; // Clear existing rows
+            items.forEach((item, index) => {
+                const rowClass = index % 2 === 0 ? 'bg-gray-500 bg-opacity-50 hover:bg-gray-600 hover:bg-opacity-70' : 'bg-gray-400 bg-opacity-50 hover:bg-gray-500 hover:bg-opacity-70';
+                const row = `
+                    <tr class="${rowClass}">
+                        <td class="py-2 px-3 border-b text-sm">${item.item_ID}</td>
+                        <td class="py-2 px-3 border-b text-sm">${item.Name}</td>
+                        <td class="py-2 px-3 border-b text-sm">${item.Color}</td>
+                        <td class="py-2 px-3 border-b text-sm">${item.Type}</td>
+                        <td class="py-2 px-3 border-b text-sm">${item.Time}</td>
+                        <td class="py-2 px-3 border-b text-sm">${item.Quantity}</td>
+                        <td class="py-2 px-3 border-b text-sm"></td>
+                    </tr>
+                `;
+                itemTable.innerHTML += row;
             });
         })
-        .catch(error => console.error('Error fetching:', error));
+        .catch(error => console.error('Error fetching items:', error));
     }
-    fetchItem();
+    // Call the fetch function to load items
+    fetchItems();
 });
 
 

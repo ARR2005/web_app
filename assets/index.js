@@ -11,6 +11,7 @@ app.use(cors());
 
 // Middleware to serve static files (e.g., HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Use item routes
 app.use(itemRoutes);
+
 
 // Start the server
 app.listen(port, () => {
