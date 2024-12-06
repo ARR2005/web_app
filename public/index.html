@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ItemShow</title>
-    <link href="../src/output.css" rel="stylesheet">
+    <link href="/src/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900">
     <!-- modal -->
     <div id="modal" class="fixed inset-0 hidden  bg-slate-800 text-slate-300 W-[60vw] max-w-[500px] max-h-fit  mx-auto mt-auto font-serif px-4 ">
         <!-- FORM -->
         <div>
-            <button id="closeModal" class="bg-red-400 text-white p-1 p-2 mt-3 inline-block rounded">Close</button>
+            <button id="closeModal" class="bg-red-400 text-white p-1 mt-3 inline-block rounded">Close</button>
             <H1 class="mx-20 justify-self-center font-extrabold  mt-1 mb-0 inline-block">ADDING CONTENT FORM</H1>
         </div>
             <form id="postItem" action="/api/item" method="POST" class="flex flex-col">
@@ -36,7 +37,7 @@
                 <fieldset class="my-2">
                     <label for="quantity"> Quantity: <input class="bg-slate-700 text-slate-300 block w-full px-3" type="text" min="1" name="quantity" placeholder="Numbers Only" id="quantity" required></label>
                 </fieldset>
-                <button class="self-center bg-white my-2 min-w-20 rounded-tl-2xl rounded-br-2xl hover:bg-green-600 hover:text-white " type="submit" value="Submit">SUBMIT</button>
+                <button class="self-center bg-black my-2 min-w-20 rounded-tl-2xl rounded-br-2xl hover:bg-green-600 hover:text-white " type="submit" value="Submit">SUBMIT</button>
             </form>
         </div>
     <!-- end -->
