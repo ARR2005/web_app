@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const quantity = document.getElementById('quantity').value;
         console.log({ name, color, type, quantity });
         // Send POST request to add a new item
-        fetch('http://localhost:3000/api/item', {
+        fetch('https://web-app-1c4i.onrender.com/api/item', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, color, type, quantity })
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fetch items from the API
     function fetchItems() {
-        fetch('http://localhost:3000/api/item')
+        fetch('https://web-app-1c4i.onrender.com/api/item')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
